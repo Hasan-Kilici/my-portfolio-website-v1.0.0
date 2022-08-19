@@ -1,0 +1,26 @@
+<h3>My Blogs</h3>
+<hr>
+<table class="table">
+<tr>
+  <th><h4>Başlık</h4></th>
+  <th><h4>Kısa Açıklama</h4></th>
+  <th><h4>Sil</h4></th>
+  <th><h4>Düzenle</h4></th>
+</tr>
+<% blog.forEach( blog =>{  %>
+<tr>
+  <td><a href="/s/<%= blog.url %>/<%= blog.token %>"><%= blog.title %></a></td>
+  <td><%= blog.short %></td>
+  <td>
+  <form method="POST" action="/remove/blog/<%= blog.token %>">
+  <input type="submit" class="btn text-danger" value="Sil"> 
+  </form>
+  </td>
+  <td>
+  <form method="GET" action="/edit/blog/<%= blog.token %>">
+    <input type="submit" class="btn" value="Düzenle">
+  </form>
+  </td>
+</tr>
+<% }) %>
+</table>
