@@ -1,0 +1,12 @@
+<%- include("../partials/head") %>
+<%- include("../partials/usernavbar") %>
+<%- include("../partials/about") %>
+<%- include("../partials/projects") %>
+<%- include("../partials/blogs") %>
+<% if(user.admin == "true"){ %>
+<script>
+window.onload = ()=>{
+  window.location.href = "/admin/home"
+}  
+</script>
+<% } %>
