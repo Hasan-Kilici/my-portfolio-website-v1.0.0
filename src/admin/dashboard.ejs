@@ -1,0 +1,44 @@
+<%- include("../partials/head") %>
+<%- include("../partials/adminnavbar") %>
+<div class="container"><br>
+<h4>Proje Ekle</h4>
+<hr>
+<div class="card">
+  <div class="card-body">
+  <form method="POST" enctype="multipart/form-data" action="/add/project">
+  <label>Başlık</label>
+  <input type="text" id="title" name="title" class="form-control">
+   <label>Açıklama</label>
+  <textarea id="description" name="description" class="form-control w-100"></textarea>
+    <label>Proje URLsi</label>
+     <input type="text" id="url" name="url" class="form-control">
+      <label>Fotoğraf</label>
+       <input class="form-control" type="file" class="form-control-file" name="uploaded_file"><br> 
+     <input type="submit" class="btn btn-dark" value="Gönder">
+    </form>
+  </div> 
+</div> 
+<br>
+<h4>Blog ekle</h4>
+<hr>
+<div class="card">
+<div class="card-body">
+<form method="POST" enctype="multipart/form-data" action="/add/blog">
+  <label>Başlık</label>
+  <input type="text" id="title" name="title" class="form-control">
+    <label>Kısa açıklama</label>
+  <input type="text" id="short" name="short" class="form-control">
+   <label>Açıklama</label>
+  <textarea id="description" name="description" class="form-control w-100"></textarea>
+    <label>URL</label>
+     <input type="text" id="url" name="url" class="form-control">
+      <label>Fotoğraf</label>
+       <input class="form-control" type="file" class="form-control-file" name="uploaded_file"><br> 
+     <input type="submit" class="btn btn-dark" value="Gönder">  
+</form>
+</div>  
+</div>
+<%- include("../partials/adminprojects") %>
+  
+<%- include("../partials/adminblogs") %>
+  </div>
