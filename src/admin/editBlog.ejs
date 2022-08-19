@@ -1,0 +1,60 @@
+<%- include("../partials/head") %>
+<%- include("../partials/adminnavbar") %>
+<div class="container">
+<h3>Blogu Düzenle</h3>
+<hr>
+  <div class="card">
+    <div class="card-body">
+    <form method="POST" action="/edit/blog/<%= blog.token %>">
+  <label>Başlık</label>
+  <input type="text" id="title" name="title" class="form-control" value="<%= blog.title %>">
+    <label>Kısa açıklama</label>
+  <input type="text" id="short" name="short" class="form-control" value="<%= blog.short %>">
+   <label>Açıklama</label>
+  <textarea id="description" name="description" class="form-control w-100"><%= blog.description %></textarea>
+   <br>
+     <input type="submit" class="btn btn-dark" value="Gönder">  
+    </form>  
+    </div>
+  </div><br>
+  <h3>Blog parçası ekle</h3>
+  <hr>
+  <div class="card">
+  <div class="card-body">
+  <form method="POST" action="/add/blogPart/<%= blog.token %>">
+  <label>Başlık</label>
+  <input type="text" id="title" name="title" class="form-control" >
+    <label>Kısa açıklama</label>
+  <input type="text" id="short" name="short" class="form-control">
+   <label>Açıklama</label>
+  <textarea id="description" name="description" class="form-control w-100"></textarea>
+   <br>
+     <input type="submit" class="btn btn-dark">  
+    </form>  
+  </div>
+  </div><br>
+  <h3>Blog Parçaları</h3>
+  <hr>
+  <% if(partCount < 1){ %>
+  <h4>Blog Parçası bulunamadı!</h4>
+  <% } else { %>
+<table class="table">
+<tr>
+  <th><h4>Başlık</h4></th>
+  <th><h4>Kısa Açıklama</h4></th>
+  <th><h4>Sil</h4></th>
+</tr>
+<% part.forEach( part =>{  %>
+<tr>
+  <td><a href="/<%= part.url %>/<%= part.token %>"><%= part.title %></a></td>
+  <td><%= part.short %></td>
+  <td>
+  <form method="POST" action="/remove/part/<%= part.id %>">
+  <input type="submit" class="btn text-danger" value="Sil"> 
+  </form>
+  </td>
+</tr>
+<% }) %>
+</table>
+  <% } %>
+</div>
